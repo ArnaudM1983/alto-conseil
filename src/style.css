@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+
+#app {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+p {
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.5;
+  color: #000000;
+}
+h2 {
+  font-family: 'Lora', sans-serif;
+  line-height: 1.5;
+  color: #000000;
+  font-weight: 400;
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+

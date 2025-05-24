@@ -9,15 +9,44 @@
 }
 
 p {
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   line-height: 1.5;
-  color: #000000;
+  color: #423d33;
+  font-size: 15px;
 }
+
+h1 {
+  font-family: 'Unbounded', sans-serif;
+  line-height: 1.2;
+  color: #ffffff;
+  font-weight: 500;
+}
+
 h2 {
-  font-family: 'Lora', sans-serif;
+  @apply text-3xl md:text-5xl;
+  font-family: 'Unbounded', sans-serif;
+  line-height: 1.1;
+  color: #423d33;
+  font-weight: 500;
+}
+
+h3 {
+  font-family: 'Unbounded', sans-serif;
   line-height: 1.5;
-  color: #000000;
+  font-weight: 500;
+}
+
+h4 {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.1;
   font-weight: 400;
+  color: #fe5b2c;
+}
+
+a {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.5;
+  font-size: 15px;
 }
 
 @keyframes myAnim {
@@ -34,5 +63,21 @@ h2 {
 .fade-in-up {
   animation: myAnim 2s ease 0s 1 normal forwards;
 }
+
+.button {
+  background-color: #fe5b2c; 
+  color: white;
+  padding: 0.9em 1.6em;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+.button:hover {
+  background-color: #e14e26; 
+}
+
 
 

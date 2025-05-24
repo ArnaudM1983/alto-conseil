@@ -1,11 +1,12 @@
 <template>
   <Navbar />
 
-  <main class="bg-neutral-200 mx-auto space-y-20">
+  <main class="bg-gray-50 mx-auto space-y-20">
     <Hero />
-    <Images />
-    <Marquee />
+    <!-- <Images />
+    <Marquee /> -->
     <ImageTextSection />
+    <Stats />
     <FullWidthSlider />
     <Map />
     <Equipement />
@@ -23,6 +24,7 @@ import Hero from './components/Hero.vue'
 import Images from './components/Images.vue'
 import Marquee from './components/Marquee.vue'
 import ImageTextSection from './components/ImageTextSection.vue'
+import Stats from './components/Stats.vue'
 import FullWidthSlider from './components/FullWidthSlider.vue'
 import Map from './components/Map.vue'
 import Equipement from './components/Equipement.vue'

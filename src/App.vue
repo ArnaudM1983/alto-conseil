@@ -3,17 +3,15 @@
 
   <main class="bg-gray-50 mx-auto space-y-20">
     <Hero />
-    <!-- <Images />
-    <Marquee /> -->
     <ImageTextSection />
     <Stats />
-    <FullWidthSlider />
-    <Map />
-    <Equipement />
+    <TextCards />
+    <TextText />
     <Banner />
-    <QuestionsFrequentes />
+    <Testimonials />
+    <Logos />
     <Contact />
-    <ScrollingBanner />
+    <QuestionsFrequentes />
     <Footer />
   </main>
 </template>
@@ -22,15 +20,15 @@
 import Navbar from './components/Navbar.vue'
 import Hero from './components/Hero.vue'
 import Images from './components/Images.vue'
-import Marquee from './components/Marquee.vue'
 import ImageTextSection from './components/ImageTextSection.vue'
 import Stats from './components/Stats.vue'
+import TextCards from './components/TextCards.vue'
+import TextText from './components/TextText.vue'
+import Testimonials from './components/Testimonials.vue'
+import Logos from './components/Logos.vue'
 import FullWidthSlider from './components/FullWidthSlider.vue'
-import Map from './components/Map.vue'
-import Equipement from './components/Equipement.vue'
 import Banner from './components/Banner.vue'
 import QuestionsFrequentes from './components/QuestionsFrequentes.vue'
 import Contact from './components/Contact.vue'
-import ScrollingBanner from './components/ScrollingBanner.vue'
 import Footer from './components/Footer.vue'
 </script>

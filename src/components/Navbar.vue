@@ -22,20 +22,15 @@
         'md:static md:w-auto md:bg-transparent md:backdrop-blur-0 md:shadow-none md:flex md:translate-x-0 md:left-auto md:max-w-full md:rounded-none'
       ]">
 
-        <a href="#lappartement" @click.prevent="scrollToSection('#lappartement')"
+        <a href="#" @click.prevent="scrollToSection('#')"
           class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Accueil</a>
-        <a href="#equipements" @click.prevent="scrollToSection('#equipements')"
+        <a href="#apropos" @click.prevent="scrollToSection('#apropos')"
           class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">A
           propos</a>
-        <a href="#faq" @click.prevent="scrollToSection('#faq')"
+        <a href="#expertises" @click.prevent="scrollToSection('#expertises')"
           class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Nos
           expertises</a>
-        <a href="#faq" @click.prevent="scrollToSection('#faq')"
-          class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Réalisations</a>
-        <a href="#faq" @click.prevent="scrollToSection('#faq')"
-          class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Notre
-          équipe</a>
-        <a href="#faq" @click.prevent="scrollToSection('#faq')"
+        <a href="#contact" @click.prevent="scrollToSection('#contact')"
           class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Contact</a>
       </nav>
 

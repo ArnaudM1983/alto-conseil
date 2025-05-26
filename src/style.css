@@ -23,7 +23,7 @@ h1 {
 }
 
 h2 {
-  @apply text-3xl md:text-5xl;
+  @apply text-2xl md:text-4xl;
   font-family: 'Unbounded', sans-serif;
   line-height: 1.1;
   color: #423d33;
@@ -34,13 +34,30 @@ h3 {
   font-family: 'Unbounded', sans-serif;
   line-height: 1.5;
   font-weight: 500;
+  color: #423d33;
 }
 
 h4 {
   font-family: 'DM Sans', sans-serif;
   line-height: 1.1;
-  font-weight: 400;
+  
   color: #fe5b2c;
+}
+
+h5 {
+  @apply text-xl md:text-2xl;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #423d33;
+}
+
+h6 {
+  @apply text-xl md:text-xl;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #423d33;
 }
 
 a {

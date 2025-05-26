@@ -1,62 +1,122 @@
+<script setup>
+import { ref } from 'vue'
+
+// Données FAQ dynamiques
+const faqs = ref([
+    {
+        question: 'Diversité d\'approches pour vos placements',
+        answer:
+            'Nous croyons en la diversité d’approches pour optimiser vos placements. Chaque investisseur a des objectifs, un profil de risque et un horizon différents. C’est pourquoi nous analysons une large gamme de solutions – traditionnelles ou innovantes – pour construire une stratégie d’investissement sur mesure. Cette approche nous permet de sécuriser vos intérêts tout en identifiant les meilleures opportunités de croissance.',
+        open: true
+    },
+    {
+        question: 'Un accompagnement pour prendre des décisions financières éclairées',
+        answer:
+            'Nous vous offrons un accompagnement personnalisé pour vous aider à comprendre vos options, clarifier vos objectifs et prendre des décisions financières réfléchies. Grâce à nos conseils, vous bénéficiez d’une vision claire et adaptée à votre situation.',
+        open: false
+    },
+    {
+        question: 'Aucun frai caché, aucun engagement',
+        answer: 'Transparence et simplicité sont au cœur de notre approche. Aucun frais caché ne vous sera facturé, et vous n’êtes soumis à aucun engagement contraignant. Vous gardez le contrôle à chaque étape.',
+        open: false
+    },
+])
+
+// Fonction pour toggle une question
+function toggleFAQ(index) {
+    faqs.value[index].open = !faqs.value[index].open
+}
+</script>
+
 <template>
-    <section id="contact">
-    <div class="container px-6 py-12 mx-auto">
-        <div class="lg:flex lg:items-center lg:-mx-6">
-            <div class="lg:w-1/2 lg:mx-6">
-                <h2 class="text-3xl mb-10 md:text-6xl font-semibold text-white sm:text-3xl text-left">
-            Contactez-nous
-        </h2>
+    <section id="contact" class="mb-0">
+        <div class="container px-6 mx-auto">
+            <div class="lg:flex lg:items-start lg:gap-12">
+                <!-- FAQ -->
+                <div class="container px-6 py-12 mx-auto">
+                    <h2 class="text-2xl text-left font-semibold text-gray-800 lg:text-3xl">Discutez avec l’un de nos
+                        conseillers et obtenez des conseils gratuits !</h2>
+                    <hr class="my-6 border-gray-200" />
 
-                <div class="mt-6 space-y-8 md:mt-8">
-                    <p class="flex items-start -mx-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-blue-500 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
+                    <div v-for="(faq, index) in faqs" :key="index" class="mb-6">
+                        <button @click="toggleFAQ(index)" class="flex items-center w-full text-left focus:outline-none">
+                            <svg v-if="faq.open" class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                            </svg>
+                            <svg v-else class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4" />
+                            </svg>
 
-                        <span class="mx-2 text-gray-700 truncate w-72 dark:text-gray-400 text-left">+33601010101</span>
-                    </p>
-
-                    <p class="flex items-start -mx-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 mx-2 text-blue-500 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                        </svg>
-
-                        <span class="mx-2 text-gray-700 truncate w-72 dark:text-gray-400 text-left">rayolhorizon@example.com</span>
-                    </p>
-                </div>
-            </div>
-
-            <div class="mt-8 lg:w-1/2 lg:mx-6">
-                <div
-                    class="w-full px-8 py-10 mx-auto overflow-hidden  rounded-lg shadow-2xl lg:max-w-xl shadow-gray-300/50 dark:shadow-black/50">
-                    <p class="text-lg font-medium text-white text-left">Besoin d’aide ou d’infos ? Écrivez-nous</p>
-
-                    <form class="mt-6">
-                        <div class="flex-1">
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200 text-left">Votre Nom</label>
-                            <input type="text" class="w-full px-6 py-2 text-lg font-light text-white border border-gray-400 bg-transparent rounded-none placeholder-gray-300 focus:outline-none focus:ring-0 focus:border-white transition"
-                            />
-                        </div>
-
-                        <div class="flex-1 mt-6">
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200 text-left">Adresse Email</label>
-                            <input type="email" class="w-full px-6 py-2 text-lg font-light text-white border border-gray-400 bg-transparent rounded-none placeholder-gray-300 focus:outline-none focus:ring-0 focus:border-white transition"
-                            />
-                        </div>
-
-                        <div class="w-full mt-6">
-                            <label class="block mb-2 text-sm text-gray-600 dark:text-gray-200 text-left">Votre Message</label>
-                            <textarea class="w-full px-6 py-2 text-lg font-light text-white border border-gray-400 bg-transparent rounded-none placeholder-gray-300 focus:outline-none focus:ring-0 focus:border-white transition"
-                            ></textarea>
-                        </div>
-
-                        <button class="w-full text-white border border-white mt-8 px-6 py-2 text-lg font-light cursor-pointer bg-transparent rounded-none hover:bg-white hover:text-black transition">
-                            Soumettre le formulaire
+                            <h6 class="mx-4 text-xl text-gray-700">{{ faq.question }}</h6>
                         </button>
-                    </form>
+
+                        <transition name="fade">
+                            <div v-show="faq.open" class="flex mt-4 md:mx-10">
+                                <span class="border-l-2 border-blue-500 mr-4"></span>
+                                <p class="text-left max-w-3xl text-gray-600">{{ faq.answer }}</p>
+                            </div>
+                        </transition>
+
+                        <hr class="mt-6 border-gray-200" />
+                    </div>
+                </div>
+
+                <!-- Formulaire -->
+                <div class="lg:w-1/2">
+                    <div
+                        class="w-full px-8 py-10 mx-auto overflow-hidden bg-gray-900 rounded-lg shadow-2xl lg:max-w-xl shadow-gray-300/50">
+                        <p class="text-lg font-medium text-left title-contact">
+                            Intéressé par une collaboration ou des questions ? Remplissez simplement le formulaire et
+                            nous vous rappellerons.
+                        </p>
+
+                        <form class="mt-6">
+                            <div class="flex-1">
+                                <label class="block mb-2 text-sm text-gray-300 text-left">Votre Nom</label>
+                                <input type="text"
+                                    class="w-full px-6 py-2 text-white border border-gray-400 bg-transparent placeholder-gray-300 focus:outline-none focus:border-white" />
+                            </div>
+
+                            <div class="flex-1 mt-6">
+                                <label class="block mb-2 text-sm text-gray-300 text-left">Adresse Email</label>
+                                <input type="email"
+                                    class="w-full px-6 py-2 text-white border border-gray-400 bg-transparent placeholder-gray-300 focus:outline-none focus:border-white" />
+                            </div>
+
+                            <div class="w-full mt-6">
+                                <label class="block mb-2 text-sm text-gray-300 text-left">Votre Message</label>
+                                <textarea
+                                    class="w-full px-6 py-2 text-white border border-gray-400 bg-transparent placeholder-gray-300 focus:outline-none focus:border-white"></textarea>
+                            </div>
+
+                            <button
+                                class="w-full text-white border border-white mt-8 px-6 py-2 hover:bg-white hover:text-black transition">
+                                Soumettre le formulaire
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.title-contact {
+    color: white;
+}
+</style>

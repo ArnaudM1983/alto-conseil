@@ -11,11 +11,11 @@
         <!-- Contenu en deux colonnes -->
         <div class="relative z-10 flex flex-col md:flex-row items-center h-full ">
             <!-- Colonne gauche (60%) -->
-            <div class="w-full md:w-4/6 p-8 md:p-16 flex flex-col justify-end text-left text-black">
+            <div class="w-full md:w-4/6 p-8 md:p-16 flex flex-col justify-center md:justify-end text-center md:text-left text-black min-h-screen md:min-h-0">
                 <FadeInOnScroll>
                     <h1 class="text-3xl md:text-5xl mb-16">{{ mainTitle }}</h1>
-                    <h3 class="mt-4 text-lg md:text-xl font-thin text-white uppercase">{{ mainParagraph }}</h3>
-                    <a href="#"
+                    <h3 class="mt-4 text-sm md:text-xl font-thin text-white uppercase">{{ mainParagraph }}</h3>
+                    <a href="#expertises"
                         class="inline-block mt-10 bg-white text-orange-500 px-8 py-4 font-dm text-lg leading-6 transition duration-200 hover:bg-[#e14e26] hover:text-white">
                         Voir Nos Expertises
                     </a>
@@ -54,4 +54,8 @@ const props = defineProps({
 .lora-font {
     font-family: 'Lora', serif;
 }
+h3 {
+  color: white !important;
+}
+
 </style>

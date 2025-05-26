@@ -1,36 +1,23 @@
 <template>
-    <section class="max-w-[1250px] mx-auto text-white px-4 md:px-0" id="faq">
-        <h2 class="text-3xl mb-10 md:text-6xl font-semibold text-white sm:text-3xl text-left">
-            Questions Fréquentes
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-            <!-- Colonne de gauche : Catégories -->
-            <div class="flex flex-col space-y-4 md:col-span-5">
-                <button v-for="tab in tabs" :key="tab" @click="selectedTab = tab" :class="[
-                    'py-3 text-left rounded-lg transition-colors cursor-pointer text-xl md:text-4xl urbanist-font',
-                    selectedTab === tab
-                        ? 'text-white font-normal'
-                        : 'text-gray-500 hover:text-white'
-                ]">
-                    {{ tab }}
-                </button>
+    <section class="max-w-3xl mx-auto py-12 px-6">
+        <h2 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Questions fréquentes</h2>
+        <div v-for="(faq, index) in faqs" :key="index" class="mb-4 rounded overflow-hidden">
+            <div class="flex justify-between items-center p-4 cursor-pointer bg-[#f5f5f5] hover:bg-[#fe5b2c] transition-colors group"
+                :class="faq.open ? 'bg-[#fe5b2c] text-white' : 'text-gray-800'" @click="toggleFAQ(index)">
+                <h6 class="transition-colors" :class="{ 'text-white': faq.open }">
+                    {{ faq.question }}
+                </h6>
+                <span class="text-2xl font-bold transition-colors group-hover:text-white"
+                    :class="{ 'text-white': faq.open, 'text-[#fe5b2c]': !faq.open }">
+                    {{ faq.open ? '–' : '+' }}
+                </span>
             </div>
 
-            <!-- Colonne de droite : FAQ -->
-            <div class="md:col-span-7 space-y-4">
-                <div v-for="(faq, index) in faqs[selectedTab]" :key="index" class="border-b border-white pb-4">
-                    <div class="flex justify-between items-center cursor-pointer text-left" @click="toggle(index)">
-                        <h3 class="text-lg font-light py-4">{{ faq.question }}</h3>
-                        <span class="text-xl">
-                            {{ openIndex === index ? '−' : '+' }}
-                        </span>
-                    </div>
-                    <div v-if="openIndex === index" class="mt-6 mb-2 text-gray-300 transition-all text-left">
-                        {{ faq.answer }}
-                    </div>
+            <transition name="fade">
+                <div v-show="faq.open" class="p-4 text-gray-700 bg-white  text-sm leading-relaxed text-left">
+                    {{ faq.answer }}
                 </div>
-            </div>
+            </transition>
         </div>
     </section>
 </template>
@@ -38,42 +25,57 @@
 <script setup>
 import { ref } from 'vue'
 
-const tabs = ['Appartement', 'Location', 'Réservation']
-const selectedTab = ref('Appartement')
-const openIndex = ref(null)
+const faqs = ref([
+    {
+        question: 'Quels types de placements proposez-vous ?',
+        answer:
+            'Nous proposons des placements diversifiés : actions, obligations, immobiliers, et investissements alternatifs.',
+        open: false
+    },
+    {
+        question: 'L’accompagnement est-il personnalisé ?',
+        answer:
+            'Oui, chaque client bénéficie d’une analyse et de recommandations personnalisées.',
+        open: false
+    },
+    {
+        question: 'Quels sont vos frais ?',
+        answer:
+            'Nos frais sont transparents et indiqués dès le départ. Aucun frais caché.',
+        open: false
+    },
+    {
+        question: 'Est-ce que je peux modifier ma stratégie plus tard ?',
+        answer:
+            'Bien sûr. Vous pouvez adapter votre stratégie à tout moment selon vos objectifs.',
+        open: false
+    },
+    {
+        question: 'Proposez-vous un suivi régulier ?',
+        answer:
+            'Nous proposons un suivi continu avec des bilans réguliers pour ajuster votre portefeuille.',
+        open: false
+    }
+])
 
-const toggle = (index) => {
-    openIndex.value = openIndex.value === index ? null : index
-}
-
-const faqs = {
-    Appartement: [
-        { question: 'Quelle est la superficie de l’appartement ?', answer: 'L’appartement fait 75m².' },
-        { question: 'Y a-t-il une terrasse ?', answer: 'Oui, une terrasse de 20m² est disponible.' },
-        { question: 'L’appartement est-il climatisé ?', answer: 'Oui, il dispose de la climatisation.' },
-        { question: 'Peut-on cuisiner sur place ?', answer: 'Une cuisine équipée est à votre disposition.' },
-        { question: 'Y a-t-il un ascenseur ?', answer: 'Oui, l’immeuble est équipé d’un ascenseur.' },
-    ],
-    Location: [
-        { question: 'La location inclut-elle les charges ?', answer: 'Oui, toutes les charges sont incluses.' },
-        { question: 'Les animaux sont-ils autorisés ?', answer: 'Non, les animaux ne sont pas autorisés.' },
-        { question: 'Quelle est la durée minimale ?', answer: 'Le séjour minimum est de 2 nuits.' },
-        { question: 'Puis-je louer pour un mois ?', answer: 'Oui, la location mensuelle est possible sur demande.' },
-        { question: 'Y a-t-il un dépôt de garantie ?', answer: 'Oui, un dépôt de 300€ est requis.' },
-    ],
-    Réservation: [
-        { question: 'Comment puis-je réserver ?', answer: 'La réservation se fait en ligne via notre site.' },
-        { question: 'Quels moyens de paiement acceptez-vous ?', answer: 'Carte bancaire, PayPal et virement bancaire.' },
-        { question: 'Puis-je annuler ma réservation ?', answer: 'Oui, jusqu’à 48h avant la date d’arrivée.' },
-        { question: 'Recevrai-je une confirmation ?', answer: 'Oui, un email vous sera envoyé immédiatement.' },
-        { question: 'Puis-je modifier mes dates ?', answer: 'Oui, selon disponibilité.' },
-    ]
+function toggleFAQ(index) {
+    faqs.value[index].open = !faqs.value[index].open
 }
 </script>
 
-
 <style scoped>
-.urbanist-font {
-  font-family: 'Urbanist', serif;
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+    transform: translateY(-5px);
+}
+
+.group:hover h6 {
+  color: white;
 }
 </style>

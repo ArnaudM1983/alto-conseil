@@ -23,15 +23,15 @@
       ]">
 
         <a href="#" @click.prevent="scrollToSection('#')"
-          class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Accueil</a>
+          class="cursor-pointer relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Accueil</a>
         <a href="#apropos" @click.prevent="scrollToSection('#apropos')"
-          class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">A
+          class="cursor-pointer relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">A
           propos</a>
         <a href="#expertises" @click.prevent="scrollToSection('#expertises')"
-          class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Nos
+          class="cursor-pointer relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Nos
           expertises</a>
         <a href="#contact" @click.prevent="scrollToSection('#contact')"
-          class="relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Contact</a>
+          class="cursor-pointer relative text-white font-light text-xl after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full">Contact</a>
       </nav>
 
       <!-- Réserver Button -->
